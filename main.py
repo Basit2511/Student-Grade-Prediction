@@ -25,7 +25,6 @@ class StudentManager:
       score = input(prompt)
       try:
         score = float(score)
-        score = int(score)
         break
       except ValueError:
         print("Invalid score. Please enter a valid score.\n")
@@ -107,19 +106,16 @@ class StudentManager:
     g = self.student_matrix_grade()
     if len(self.students) != 3:
       params = self.params_matrix_det_zero(A, g)
-      params.reshape(1, 3)
       return params
       #z = -1
       #return z # z=-1 if len(students)!=3 and used for testing purposes
     det_A = linalg.det(A)
     if det_A == 0:
       params = self.params_matrix_det_zero(A, g)
-      params.reshape(1, 3)
       return params 
       #z = 0
     else:
       params = self.params_matrix_det_not_zero(A, g)
-      params.reshape(1, 3)
       return params 
       #z = 1
     #return z # z=1 if det(A) !=0 else 0 and used for testing purposes
